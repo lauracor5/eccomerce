@@ -47,10 +47,21 @@ func (u User) Create(m *model.User) error {
 }
 
 func (u User) GetByEmail(email string) (model.User, error) {
-	user err := u.repository.GetByEmail(email)
-	if err != nil {
-		return fmt.Errorf("%s %w", "repository.GetByEmail", err)
-	}
-	return user,nil
+	user, err := u.repository.GetByEmail(email)
 
+	if err != nil {
+		return model.User{}, fmt.Errorf("%s %w", "repository.GetByEmail", err)
+	}
+
+	return user, nil
+}
+
+func (u User) GetAll() (model.Users, error) {
+	users, err := u.repository.GetAll()
+
+	if err != nil {
+		return model.Users{}, fmt.Errorf("%s %w", "reporsitory.GetAll", err)
+	}
+
+	return users, nil
 }
