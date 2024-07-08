@@ -29,7 +29,7 @@ func (u User) Create(m *model.User) error {
 		m.ID,
 		m.Email,
 		m.Password,
-		m.CreateAt,
+		m.CreatedAt,
 		m.IsAdmin,
 	)
 	if err != nil {
@@ -86,7 +86,7 @@ func (u User) scanRow(s pgx.Row) (model.User, error) {
 		&user.Password,
 		&user.IsAdmin,
 		&user.Details,
-		&user.CreateAt,
+		&user.CreatedAt,
 	)
 
 	if err != nil {

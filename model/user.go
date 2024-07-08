@@ -12,7 +12,7 @@ type User struct {
 	Password  string          `json:"password"`
 	IsAdmin   bool            `json:"is_admin"`
 	Details   json.RawMessage `json:"details"`
-	CreateAt  int64           `json:"created_at"`
+	CreatedAt int64           `json:"created_at"`
 	UpdatedAt int64           `json:"updated_at"`
 }
 

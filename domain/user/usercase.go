@@ -35,7 +35,7 @@ func (u User) Create(m *model.User) error {
 
 	m.ID = ID
 	m.Password = string(password)
-	m.CreateAt = time.Now().Unix()
+	m.CreatedAt = time.Now().Unix()
 
 	err = u.repository.Create(m)
 	if err != nil {
