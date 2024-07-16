@@ -64,7 +64,7 @@ func (a API) BindFailed(err error) error {
 	e.Who = "c.Bind"
 
 	log.Warnf("%s", e.Error())
-	return e
+	return &e
 }
 
 func (a API) Error(c echo.Context, who string, err error) *model.Error {
@@ -83,5 +83,5 @@ func (a API) Error(c echo.Context, who string, err error) *model.Error {
 
 	e.UserID = userID.String()
 	log.Errorf("%s", e.Error())
-	return e
+	return &e
 }
